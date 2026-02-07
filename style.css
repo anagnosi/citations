@@ -48,3 +48,104 @@ body {
     text-decoration: underline; /* souligne le texte */
     font-weight: normal;        /* pas en gras */
 }
+
+.auteurs ul {
+    padding-left: 20px;
+}
+
+.auteurs a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.auteurs a:hover {
+    text-decoration: underline;
+}
+
+/* Liste livres */
+.livres {
+    margin-top: 20px; /*50px*/
+    max-width: 700px;
+    font-size: 0.95em;
+}
+
+.livres h2 {
+    font-size: 1em;
+    margin-bottom: 10px;
+    text-decoration: underline; /* souligne le texte */
+    font-weight: normal;        /* pas en gras */
+}
+
+.livres ul {
+    padding-left: 20px;
+}
+
+.livres a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.livres a:hover {
+    text-decoration: underline;
+}
+
+/* Liste pages */
+.pages {
+    margin-top: 20px; /*50px*/
+    max-width: 700px;
+    font-size: 0.95em;
+}
+
+.pages h2 {
+    font-size: 1em;
+    margin-bottom: 10px;
+    text-decoration: underline; /* souligne le texte */
+    font-weight: normal;        /* pas en gras */
+}
+
+.pages ul {
+    padding-left: 20px;
+}
+
+.pages a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.pages a:hover {
+    text-decoration: underline;
+}
+
+/* Paragraphe */
+p {
+    max-width: 700px;
+    line-height: 1.6;
+    font-size: 1.05em;
+}
+
+/* Références */
+.references {
+    margin-top: 20px; /*50px*/
+    max-width: 700px;
+    font-size: 0.95em;
+}
+
+.references h2 {
+    font-size: 1em;
+    margin-bottom: 10px;
+    text-decoration: underline; /* souligne le texte */
+    font-weight: normal;        /* pas en gras */
+}
+
+.references ul {
+    padding-left: 20px;
+}
+
+.references a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.references a:hover {
+    text-decoration: underline;
+}
