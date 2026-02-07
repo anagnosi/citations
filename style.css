@@ -121,6 +121,8 @@ p {
     max-width: 700px;
     line-height: 1.6;
     font-size: 1.05em;
+    text-align: justify;
+    hyphens: auto;
 }
 
 /* Références */
