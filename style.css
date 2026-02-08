@@ -35,88 +35,7 @@ body {
     border: 1px solid #ccc;
 }
 
-/* Liste auteurs */
-.auteurs {
-    margin-top: 20px; /*50px*/
-    max-width: 700px;
-    font-size: 0.95em;
-}
-
-.auteurs h2 {
-    font-size: 1em;
-    margin-bottom: 10px;
-    text-decoration: underline; /* souligne le texte */
-    font-weight: normal;        /* pas en gras */
-}
-
-.auteurs ul {
-    padding-left: 20px;
-}
-
-.auteurs a {
-    color: #0066cc;
-    text-decoration: none;
-}
-
-.auteurs a:hover {
-    text-decoration: underline;
-}
-
-/* Liste livres */
-.livres {
-    margin-top: 20px; /*50px*/
-    max-width: 700px;
-    font-size: 0.95em;
-}
-
-.livres h2 {
-    font-size: 1em;
-    margin-bottom: 10px;
-    text-decoration: underline; /* souligne le texte */
-    font-weight: normal;        /* pas en gras */
-}
-
-.livres ul {
-    padding-left: 20px;
-}
-
-.livres a {
-    color: #0066cc;
-    text-decoration: none;
-}
-
-.livres a:hover {
-    text-decoration: underline;
-}
-
-/* Liste pages */
-.pages {
-    margin-top: 20px; /*50px*/
-    max-width: 700px;
-    font-size: 0.95em;
-}
-
-.pages h2 {
-    font-size: 1em;
-    margin-bottom: 10px;
-    text-decoration: underline; /* souligne le texte */
-    font-weight: normal;        /* pas en gras */
-}
-
-.pages ul {
-    padding-left: 20px;
-}
-
-.pages a {
-    color: #0066cc;
-    text-decoration: none;
-}
-
-.pages a:hover {
-    text-decoration: underline;
-}
-
-/* Paragraphe */
+/* Paragraphes */
 p {
     max-width: 700px;
     line-height: 1.6;
@@ -125,29 +44,74 @@ p {
     hyphens: auto;
 }
 
-/* Références */
+/* Sections génériques */
+.auteurs,
+.livres,
+.pages,
 .references {
-    margin-top: 20px; /*50px*/
+    margin-top: 20px;
     max-width: 700px;
     font-size: 0.95em;
 }
 
+.auteurs h2,
+.livres h2,
+.pages h2,
 .references h2 {
     font-size: 1em;
     margin-bottom: 10px;
-    text-decoration: underline; /* souligne le texte */
-    font-weight: normal;        /* pas en gras */
+    text-decoration: underline;
+    font-weight: normal;
 }
 
+.auteurs ul,
+.livres ul,
+.pages ul,
 .references ul {
     padding-left: 20px;
 }
 
+.auteurs a,
+.livres a,
+.pages a,
 .references a {
     color: #0066cc;
     text-decoration: none;
 }
 
+.auteurs a:hover,
+.livres a:hover,
+.pages a:hover,
 .references a:hover {
     text-decoration: underline;
+}
+
+/* =========================
+   Adaptation mobile
+   ========================= */
+
+@media (max-width: 600px) {
+    body {
+        margin: 16px;
+    }
+
+    .breadcrumb {
+        font-size: 0.9em;
+    }
+
+    p {
+        max-width: 100%;
+        font-size: 1.1em;
+        line-height: 1.7;
+        text-align: left;
+        hyphens: none;
+    }
+
+    .auteurs,
+    .livres,
+    .pages,
+    .references {
+        max-width: 100%;
+        font-size: 1em;
+    }
 }
