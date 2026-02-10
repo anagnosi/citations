@@ -46,7 +46,7 @@ p {
 
 /* Sections génériques */
 .auteurs,
-.livres,
+.oeuvres,
 .pages,
 .references {
     margin-top: 20px;
@@ -55,7 +55,7 @@ p {
 }
 
 .auteurs h2,
-.livres h2,
+.oeuvres h2,
 .pages h2,
 .references h2 {
     font-size: 1em;
@@ -65,14 +65,14 @@ p {
 }
 
 .auteurs ul,
-.livres ul,
+.oeuvres ul,
 .pages ul,
 .references ul {
     padding-left: 20px;
 }
 
 .auteurs a,
-.livres a,
+.oeuvres a,
 .pages a,
 .references a {
     color: #0066cc;
@@ -80,7 +80,7 @@ p {
 }
 
 .auteurs a:hover,
-.livres a:hover,
+.oeuvres a:hover,
 .pages a:hover,
 .references a:hover {
     text-decoration: underline;
@@ -108,7 +108,7 @@ p {
     }
 
     .auteurs,
-    .livres,
+    .oeuvres,
     .pages,
     .references {
         max-width: 100%;
