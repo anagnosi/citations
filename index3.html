@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <!-- Indispensable pour l’affichage mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citations - Accueil</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="breadcrumb">
+        <a href="index.html">Accueil</a>
+    </nav>
+
+    <section class="auteurs">
+        <h2>Auteurs :</h2>
+        <ul>
+            <li><a href="emile-zola/index.html">Emile Zola</a></li>
+            <li><a href="jehan-rictus/index.html">Jehan Rictus</a></li>
+            <li><a href="paul-bourget/index.html">Paul Bourget</a></li>
+        </ul>
+    </section>
+
+    <script>
+    const pages = [
+      "./paul-bourget/mensonges-1887/pages-214-215.html",
+      "./paul-bourget/mensonges-1887/page-136.html",
+      "./paul-bourget/mensonges-1887/page-354.html",
+      "./paul-bourget/mensonges-1887/page-212.html",
+      "./paul-bourget/mensonges-1887/page-250.html",
+      "./paul-bourget/mensonges-1887/page-307.html",
+      "./paul-bourget/mensonges-1887/page-262.html",
+      "./paul-bourget/mensonges-1887/pages-122-123.html",
+      "./paul-bourget/mensonges-1887/page-204.html",
+      "./paul-bourget/mensonges-1887/pages-243-244.html",
+      "./paul-bourget/mensonges-1887/pages-284-285.html",
+      "./paul-bourget/l-etape-1902/pages-287-288.html",
+      "./paul-bourget/l-etape-1902/page-314.html",
+      "./paul-bourget/l-etape-1902/pages-333-334.html",
+      "./paul-bourget/l-etape-1902/pages-479-480.html",
+      "./paul-bourget/l-etape-1902/pages-390-391.html",
+      "./paul-bourget/l-etape-1902/pages-362-363.html",
+      "./paul-bourget/l-etape-1902/page-403.html",
+      "./paul-bourget/l-etape-1902/page-98.html",
+      "./paul-bourget/l-etape-1902/page-339.html",
+      "./paul-bourget/l-etape-1902/page-310.html",
+      "./paul-bourget/l-etape-1902/pages-203-204.html",
+      "./paul-bourget/l-etape-1902/page-271.html",
+      "./paul-bourget/une-idylle-tragique-1896/pages-58-59.html",
+      "./paul-bourget/la-dame-qui-a-perdu-son-peintre-1910/page-228.html",
+      "./paul-bourget/un-crime-d-amour-1886/pages-248-249.html",
+      "./paul-bourget/un-crime-d-amour-1886/pages-279-283.html",
+      "./paul-bourget/le-sens-de-la-mort-1915/page-fin.html",
+      "./paul-bourget/le-sens-de-la-mort-1915/pages-248-251.html",
+      "./paul-bourget/le-sens-de-la-mort-1915/pages-168-169.html",
+      "./paul-bourget/le-sens-de-la-mort-1915/page-165.html",
+      "./paul-bourget/le-sens-de-la-mort-1915/pages-199-200.html",
+      "./paul-bourget/le-sens-de-la-mort-1915/pages-230-231.html",
+      "./paul-bourget/le-sens-de-la-mort-1915/page-205.html",
+      "./paul-bourget/le-sens-de-la-mort-1915/page-287.html",
+      "./paul-bourget/le-sens-de-la-mort-1915/pages-78-79.html",
+      "./paul-bourget/le-sens-de-la-mort-1915/pages-56-57.html",
+      "./paul-bourget/le-sens-de-la-mort-1915/page-281.html",
+      "./emile-zola/la-joie-de-vivre-1884/page-447.html",
+      "./emile-zola/pot-bouille-1882/page-405.html"
+    ];
+    </script>
+
+    <form id="searchForm">
+        <input id="search" placeholder="Rechercher une citation…">
+        <button type="submit">Rechercher</button>
+    </form>
+
+    <div id="results"></div>
+
+    <script>
+    function normalize(str) {
+      return str
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+    }
+
+    async function search(query) {
+      const results = [];
+
+      const fetches = pages.map(async url => {
+        try {
+          const res = await fetch(url);
+          if (!res.ok) return;
+
+          const html = await res.text();
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, "text/html");
+          const text = doc.body.innerText;
+
+          if (normalize(text).includes(normalize(query))) {
+            results.push(url);
+          }
+        } catch (err) {
+          console.error("Erreur sur", url, err);
+        }
+      });
+
+      await Promise.all(fetches);
+      return results;
+    }
+
+    document.querySelector('#searchForm').addEventListener('submit', async e => {
+      e.preventDefault();
+
+      const query = document.querySelector('#search').value.trim();
+      const container = document.querySelector('#results');
+
+      if (!query) {
+        container.innerHTML = "";
+        return;
+      }
+
+      container.innerHTML = "Recherche en cours...";
+
+      const matches = await search(query);
+
+      container.innerHTML = matches.length
+        ? matches.map(url => `<div><a href="${url}">${url}</a></div>`).join("")
+        : "Aucun résultat.";
+    });
+    </script>
+
+</body>
+</html>
